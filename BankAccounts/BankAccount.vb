@@ -7,7 +7,7 @@
     Private CountryOfOrigin As String
 
 
-    Public Sub New(AccountHolder As String, AccountNumber As String, Balance As Double, InterestRate As Double, CountryOfOrigin As String)
+    Public Sub New(AccountNumber As String, AccountHolder As String, Balance As Double, InterestRate As Double, CountryOfOrigin As String)
         Me.AccountHolder = AccountHolder
         Me.AccountNumber = AccountNumber
         Me.Balance = Balance
@@ -16,7 +16,7 @@
 
     End Sub
 
-    Public Sub New(AccountHolder As String, AccountNumber As String, Balance As Double, InterestRate As Double)
+    Public Sub New(AccountNumber As String, AccountHolder As String, Balance As Double, InterestRate As Double)
         Me.AccountHolder = AccountHolder
         Me.AccountNumber = AccountNumber
         Me.Balance = Balance
@@ -24,11 +24,16 @@
 
     End Sub
 
-    Public Sub New(AccountHolder As String, AccountNumber As String, Balance As Double)
+    Public Sub New(AccountNumber As String, AccountHolder As String, Balance As Double)
         Me.AccountHolder = AccountHolder
         Me.AccountNumber = AccountNumber
         Me.Balance = Balance
 
     End Sub
+
+    Public Function GetAccountHolder() As String
+        Return Me.AccountHolder
+
+    End Function
 
 End Class
