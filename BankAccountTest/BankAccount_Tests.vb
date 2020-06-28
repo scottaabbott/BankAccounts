@@ -1,7 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
-<TestClass()> Public Class UnitTest1
+<TestClass()> Public Class BankAccount_Tests
 
     <TestMethod()> Public Sub TestConstructors()
 

@@ -4,11 +4,19 @@
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAddInterest.Click
+    Public Function SetTextForTesting(AccountNumber As String, AccountHolder As String, Balance As String, InterestRate As String, CountryOfOrigin As String)
+        txtAccountHolder.Text = AccountHolder
+        txtAccountNumber.Text = AccountNumber
+        txtBalance.Text = Balance
+        txtInterestRate.Text = InterestRate
+        txtCountry.Text = CountryOfOrigin
 
-    End Sub
+        Return Nothing
 
-    Private Sub lblAccountHolder_Click(sender As Object, e As EventArgs) Handles lblAccountHolder.Click
+    End Function
+
+    Private Sub btnAddInterest_Click(sender As Object, e As EventArgs) Handles btnAddInterest.Click
+        SetTextForTesting("One", "Two", "Three", "Four", "Five")
 
     End Sub
 End Class
