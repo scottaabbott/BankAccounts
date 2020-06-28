@@ -41,6 +41,12 @@
 
     End Function
 
+    Public Function SetAccountNumber(AccountNumber As String)
+        Me.AccountNumber = AccountNumber
+        Return Nothing
+
+    End Function
+
     Public Function GetBalance() As Double
         Return Me.Balance
 

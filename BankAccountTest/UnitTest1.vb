@@ -55,6 +55,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestSetAccountNumber()
+
+        ' Arrange - setup test case
+
+        Dim NewAcctNumber = "WXYZ 890222 0987654321"
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+        Account1.SetAccountNumber(NewAcctNumber)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(NewAcctNumber, Account1.GetAccountNumber())
+
+    End Sub
+
     <TestMethod()> Public Sub TestGetBalance()
 
         ' Arrange - setup test case
