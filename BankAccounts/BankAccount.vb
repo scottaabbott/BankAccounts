@@ -50,4 +50,9 @@
         Return Me.InterestRate
 
     End Function
+
+    Public Function GetCountryOfOrigin() As String
+        Return Me.CountryOfOrigin
+
+    End Function
 End Class
