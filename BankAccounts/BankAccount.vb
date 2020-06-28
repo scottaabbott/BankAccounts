@@ -85,5 +85,14 @@
         Return Nothing
 
     End Function
+    Public Function ApplyInterest()
+
+        Dim MthInterest As Double = Me.Balance * (Me.InterestRate / 100) * (1 / 12)
+        Me.Balance += Math.Round(MthInterest, 2)
+
+        Return Nothing
+
+    End Function
+
 
 End Class

@@ -174,7 +174,20 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(NewCountryOfOrigin, Account1.GetCountryOfOrigin())
 
     End Sub
+    <TestMethod()> Public Sub TestApplyInterestRate()
+        ' p x r x t = i => 37.07 + 10343.82 = 10380.89
+        ' Arrange - setup test case
 
+        Dim NewBalance = 10380.89
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+        Account1.ApplyInterest()
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(Account1.GetBalance(), NewBalance)
+
+    End Sub
     Private Function NewAccount() As BankAccounts.BankAccount
         Dim AccountHolder As String = "Ms I. N. Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"
