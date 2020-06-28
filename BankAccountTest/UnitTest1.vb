@@ -35,7 +35,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Name As String = Account1.GetAccountHolder()
 
         ' Assert - check if the test failed
-        Assert.AreEqual(Name, "Ms I. N. Cognito")
+        Assert.AreEqual(Name, "Ms I.N.Cognito")
 
     End Sub
 
@@ -188,8 +188,35 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(Account1.GetBalance(), NewBalance)
 
     End Sub
+
+    <TestMethod()> Public Sub TestToStringMethod()
+        ' Must print something like this:
+        ' Isle of Man + vbcrlf
+        ' ABCD 890111 11167890 + vbcrlf
+        ' MS I.N.Cognito + vbcrlf
+        ' Interest: 4.3% + vbcrlf
+        ' 10343.82 + vbcrlf
+
+        ' Arrange - setup test case
+        Dim ExpectedValueString As New StringBuilder()
+        ExpectedValueString.Append("Isle of Man" & vbCrLf)
+        ExpectedValueString.Append("ABCD 890111 11167890" & vbCrLf)
+        ExpectedValueString.Append("Ms I.N.Cognito" & vbCrLf)
+        ExpectedValueString.Append("Interest: 4.3%" & vbCrLf)
+        ExpectedValueString.Append("10343.82" & vbCrLf)
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Console.WriteLine(ExpectedValueString.ToString())
+
+        ' Act - perform the test
+        Dim ActualString = Account1.ToString()
+        Console.WriteLine(ActualString)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(ActualString, ExpectedValueString.ToString())
+
+    End Sub
     Private Function NewAccount() As BankAccounts.BankAccount
-        Dim AccountHolder As String = "Ms I. N. Cognito"
+        Dim AccountHolder As String = "Ms I.N.Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"
         Dim InterestRate As Double = 4.3
         Dim Balance As Double = 10343.82
