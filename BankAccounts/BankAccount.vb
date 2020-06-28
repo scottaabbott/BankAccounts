@@ -45,4 +45,9 @@
         Return Me.Balance
 
     End Function
+
+    Public Function GetInterestRate() As Double
+        Return Me.InterestRate
+
+    End Function
 End Class
