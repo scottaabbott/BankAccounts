@@ -4,7 +4,9 @@ Imports System.Drawing
 Module Module1
 
     Sub Main()
-        Application.Run(New BankAccountsForm())
+        ' show form
+        Dim BF As New BankAccountsForm()
+        Application.Run(BF)
 
     End Sub
 
