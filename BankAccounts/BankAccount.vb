@@ -80,5 +80,10 @@
 
     End Function
 
+    Public Function SetCountryOfOrigin(Country As String)
+        Me.CountryOfOrigin = Country
+        Return Nothing
+
+    End Function
 
 End Class

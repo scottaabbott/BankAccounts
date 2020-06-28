@@ -160,6 +160,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestSetCountryOfOrigin()
+
+        ' Arrange - setup test case
+
+        Dim NewCountryOfOrigin = "West Namibia"
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+        Account1.SetCountryOfOrigin(NewCountryOfOrigin)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(NewCountryOfOrigin, Account1.GetCountryOfOrigin())
+
+    End Sub
+
     Private Function NewAccount() As BankAccounts.BankAccount
         Dim AccountHolder As String = "Ms I. N. Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"
