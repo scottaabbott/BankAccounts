@@ -14,7 +14,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "10343.82"
         Dim CountryOfOrigin As String = "Isle Of Man"
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
