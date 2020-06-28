@@ -40,4 +40,9 @@
         Return Me.AccountNumber
 
     End Function
+
+    Public Function GetBalance() As Double
+        Return Me.Balance
+
+    End Function
 End Class
