@@ -13,6 +13,24 @@
         Me.NumAccounts = 0
 
     End Sub
+    Public Function CreateAccount()
+
+        ' get text from from each textbox on the form so can use to create new bank account object
+        Dim AccountHolder As String = txtAccountHolder.Text
+        Dim AccountNumber As String = txtAccountNumber.Text
+        Dim Balance As Double = CDbl(txtBalance.Text)
+        Dim InterestRate As Double = CDbl(txtInterestRate.Text)
+        Dim Country As String = txtCountry.Text
+
+        ' create a new bank account object using the values of the form fields
+        Dim NewAccount = New BankAccount(AccountNumber, AccountHolder, Balance, InterestRate, Country)
+        ' assign the new account to the next spot in the Accounts List (array)
+        Me.Accounts(Me.NumAccounts) = NewAccount
+
+        ' should increment NumAccounts?
+        Return Nothing
+
+    End Function
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Application.Exit()
 
