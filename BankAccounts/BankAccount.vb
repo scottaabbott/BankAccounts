@@ -123,4 +123,18 @@ Public Class BankAccount
         Return Me.Balance
 
     End Function
+
+    Public Function Withdrawl(Amount As Double) As Double
+
+        ' check if amount requested for withdrawl is > the account balance
+        If Amount > Me.Balance Then
+            Throw New Exception("Insufficient Funds")
+        End If
+
+        ' this line only runs if no exception thrown (sufficient funds)
+        Me.Balance -= Amount
+
+        Return Me.Balance
+
+    End Function
 End Class

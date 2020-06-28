@@ -231,6 +231,46 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Assert.AreEqual(ExpectedValue, ActualValue)
 
     End Sub
+
+    <TestMethod()> Public Sub TestWithdrawlSmall()
+        ' handles widthdrawl where amount is < the account balance
+
+        ' Arrange - setup test case
+
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Dim WithdrawlValue As Double = 700
+        Dim ExpectedBalance As Double = 10343.82 - WithdrawlValue
+
+        ' Act - perform the test
+        Dim NewBalance As Double = Account1.Withdrawl(WithdrawlValue)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(ExpectedBalance, NewBalance)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestWithdrawlLarge()
+        ' handles widthdrawl where amount is > the account balance
+
+        ' Arrange - setup test case
+
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Dim WithdrawlValue As Double = 11000
+        ' cannot over withdraw so balance should be unchanged
+        Dim ExpectedBalance As Double = 10343.82
+
+        ' Act - perform the test
+        Try
+            Dim NewBalance = Account1.Withdrawl(WithdrawlValue)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+
+        ' Assert - check if the test failed
+        ' note - testing agains GetBalance instead of NewBalance (not used)
+        Assert.AreEqual(ExpectedBalance, Account1.GetBalance())
+
+    End Sub
     Private Function NewAccount() As BankAccounts.BankAccount
         Dim AccountHolder As String = "Ms I.N.Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"
