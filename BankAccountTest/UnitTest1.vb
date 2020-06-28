@@ -14,9 +14,9 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         ' Act - perform the test
 
-        Dim Account1 As New BankAccounts.BankAccount(AccountNumber, AccountHolder, InterestRate, Balance, CountryOfOrigin)
-        Dim Account2 As New BankAccounts.BankAccount(AccountNumber, AccountHolder, InterestRate, Balance)
-        Dim Account3 As New BankAccounts.BankAccount(AccountNumber, AccountHolder, InterestRate)
+        Dim Account1 As New BankAccounts.BankAccount(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        Dim Account2 As New BankAccounts.BankAccount(AccountNumber, AccountHolder, Balance, InterestRate)
+        Dim Account3 As New BankAccounts.BankAccount(AccountNumber, AccountHolder, Balance)
 
         ' Assert - check if the test failed
         Assert.IsNotNull(Account1)
