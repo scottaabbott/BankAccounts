@@ -55,4 +55,10 @@
         Return Me.CountryOfOrigin
 
     End Function
+
+    Public Function SetInterestRate(Rate As Double)
+        Me.InterestRate = Rate
+        Return Nothing
+
+    End Function
 End Class

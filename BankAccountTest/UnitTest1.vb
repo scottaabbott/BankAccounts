@@ -100,6 +100,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestSetInterestRate()
+
+        ' Arrange - setup test case
+
+        Dim NewRate As Double = 5.1
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+        Account1.SetInterestRate(NewRate)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(NewRate, Account1.GetInterestRate())
+
+    End Sub
+
     Private Function NewAccount() As BankAccounts.BankAccount
         Dim AccountHolder As String = "Ms I. N. Cognito"
         Dim AccountNumber As String = "ABCD 890111 11167890"
