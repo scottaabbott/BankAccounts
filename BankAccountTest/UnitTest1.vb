@@ -208,11 +208,27 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Console.WriteLine(ExpectedValueString.ToString())
 
         ' Act - perform the test
-        Dim ActualString = Account1.ToString()
+        Dim ActualString As String = Account1.ToString()
         Console.WriteLine(ActualString)
 
         ' Assert - check if the test failed
-        Assert.AreEqual(ActualString, ExpectedValueString.ToString())
+        Assert.AreEqual(ExpectedValueString.ToString(), ActualString)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestDeposit()
+
+        ' Arrange - setup test case
+
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+        Dim DepositValue As Double = 700
+        Dim ExpectedValue As Double = 10343.82 + DepositValue
+
+        ' Act - perform the test
+        Dim ActualValue As Double = Account1.Deposit(DepositValue)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(ExpectedValue, ActualValue)
 
     End Sub
     Private Function NewAccount() As BankAccounts.BankAccount

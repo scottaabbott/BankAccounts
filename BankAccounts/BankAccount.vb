@@ -100,11 +100,11 @@ Public Class BankAccount
 
         Dim AccountString As New StringBuilder()
 
-        'OutputString.Append(Me.CountryOfOrigin & vbCrLf)
-        'OutputString.Append(Me.AccountNumber & vbCrLf)
-        'OutputString.Append(Me.AccountHolder & vbCrLf)
-        'OutputString.Append("Interest: " & Me.InterestRate & "%" & vbCrLf)
-        'OutputString.Append(Me.Balance & vbCrLf)
+        'AccountString.Append(Me.CountryOfOrigin & vbCrLf)
+        'AccountString.Append(Me.AccountNumber & vbCrLf)
+        'AccountString.Append(Me.AccountHolder & vbCrLf)
+        'AccountString.Append("Interest: " & Me.InterestRate.ToString() & "%" & vbCrLf)
+        'AccountString.Append(Me.Balance.ToString() & vbCrLf)
 
         AccountString.Append("Isle of Man" & vbCrLf)
         AccountString.Append("ABCD 890111 11167890" & vbCrLf)
@@ -113,6 +113,14 @@ Public Class BankAccount
         AccountString.Append("10343.82" & vbCrLf)
 
         Return AccountString.ToString()
+
+    End Function
+
+    Public Function Deposit(Amount As Double) As Double
+
+        Me.Balance += Amount
+
+        Return Me.Balance
 
     End Function
 End Class
