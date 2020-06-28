@@ -36,4 +36,8 @@
 
     End Function
 
+    Public Function GetAccountNumber() As String
+        Return Me.AccountNumber
+
+    End Function
 End Class
