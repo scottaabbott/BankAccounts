@@ -36,6 +36,12 @@
 
     End Function
 
+    Public Function SetAccountHolder(AccountHolder As String)
+        Me.AccountHolder = AccountHolder
+        Return Nothing
+
+    End Function
+
     Public Function GetAccountNumber() As String
         Return Me.AccountNumber
 

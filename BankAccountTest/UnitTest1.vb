@@ -39,6 +39,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestSetAccountHolder()
+
+        ' Arrange - setup test case
+
+        Dim NewAcctHolder = "Mr C. U. Later"
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+        Account1.SetAccountHolder(NewAcctHolder)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(NewAcctHolder, Account1.GetAccountHolder())
+
+    End Sub
+
     <TestMethod()> Public Sub TestGetAccountNumber()
 
         ' Arrange - setup test case
