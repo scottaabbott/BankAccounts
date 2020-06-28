@@ -32,4 +32,135 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestEmptyAccountHolder()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "" ' simulate user failing to enter account holder
+        Dim AccountNumber As String = "ABCD 890111 11167890"
+        Dim InterestRate As String = "4.3"
+        Dim Balance As String = "10343.82"
+        Dim CountryOfOrigin As String = "Isle Of Man"
+        Dim BF As New BankAccountsForm()
+        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+
+        ' Act - perform the test
+
+        Try
+            ' use the information on the Bank Form to create an account
+            BF.CreateAccount()
+            Assert.Fail() ' If this line is executed, the test fails
+        Catch Ex As Exception
+
+            ' Assert - compare to expected results
+            Assert.AreEqual("AccountHolderRequiredException", Ex.Message)
+        End Try
+
+
+    End Sub
+
+    <TestMethod()> Public Sub TestEmptyAccountNumber()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "Ms I.N.Cognito"
+        Dim AccountNumber As String = "" 'simulate user failing to enter account number
+        Dim InterestRate As String = "4.3"
+        Dim Balance As String = "10343.82"
+        Dim CountryOfOrigin As String = "Isle Of Man"
+        Dim BF As New BankAccountsForm()
+        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+
+        ' Act - perform the test
+
+        Try
+            ' use the information on the Bank Form to create an account
+            BF.CreateAccount()
+            Assert.Fail() ' If this line is executed, the test fails
+        Catch Ex As Exception
+
+            ' Assert - compare to expected results
+            Assert.AreEqual("AccountNumberRequiredException", Ex.Message)
+        End Try
+
+    End Sub
+
+    <TestMethod()> Public Sub TestEmptyInterestRate()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "Ms I.N.Cognito"
+        Dim AccountNumber As String = "ABCD 890111 11167890"
+        Dim InterestRate As String = "" ' simulate empty interest rate field
+        Dim Balance As String = "10343.82"
+        Dim CountryOfOrigin As String = "Isle Of Man"
+        Dim BF As New BankAccountsForm()
+        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+
+        ' Act - perform the test
+
+        Try
+            ' use the information on the Bank Form to create an account
+            BF.CreateAccount()
+            Assert.Fail() ' If this line is executed, the test fails
+        Catch Ex As Exception
+
+            ' Assert - compare to expected results
+            Assert.AreEqual("InterestRateRequiredException", Ex.Message)
+        End Try
+
+    End Sub
+
+    <TestMethod()> Public Sub TestEmptyBalance()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "Ms I.N.Cognito"
+        Dim AccountNumber As String = "ABCD 890111 11167890"
+        Dim InterestRate As String = "4.3"
+        Dim Balance As String = "" ' simulate empty balance field
+        Dim CountryOfOrigin As String = "Isle Of Man"
+        Dim BF As New BankAccountsForm()
+        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+
+        ' Act - perform the test
+
+        Try
+            ' use the information on the Bank Form to create an account
+            BF.CreateAccount()
+            Assert.Fail() ' If this line is executed, the test fails
+        Catch Ex As Exception
+
+            ' Assert - compare to expected results
+            Assert.AreEqual("BalanceRequiredException", Ex.Message)
+        End Try
+
+    End Sub
+
+
+    <TestMethod()> Public Sub TestEmptyCountry()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "Ms I.N.Cognito"
+        Dim AccountNumber As String = "ABCD 890111 11167890"
+        Dim InterestRate As String = "4.3"
+        Dim Balance As String = "10343.82"
+        Dim CountryOfOrigin As String = "" ' simulate empty country field
+        Dim BF As New BankAccountsForm()
+        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+
+        ' Act - perform the test
+
+        Try
+            ' use the information on the Bank Form to create an account
+            BF.CreateAccount()
+            Assert.Fail() ' If this line is executed, the test fails
+        Catch Ex As Exception
+
+            ' Assert - compare to expected results
+            Assert.AreEqual("CountryOfOriginRequiredException", Ex.Message)
+        End Try
+
+    End Sub
 End Class

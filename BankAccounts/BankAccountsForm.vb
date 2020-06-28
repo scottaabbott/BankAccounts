@@ -15,7 +15,15 @@
     End Sub
     Public Function CreateAccount()
 
+        ' Guard Clauses
+        If txtAccountHolder.Text = "" Then Throw New Exception("AccountHolderRequiredException")
+        If txtAccountNumber.Text = "" Then Throw New Exception("AccountNumberRequiredException")
+        If txtInterestRate.Text = "" Then Throw New Exception("InterestRateRequiredException")
+        If txtBalance.Text = "" Then Throw New Exception("BalanceRequiredException")
+        If txtCountry.Text = "" Then Throw New Exception("CountryOfOriginRequiredException")
+
         ' get text from from each textbox on the form so can use to create new bank account object
+        ' need to run after guard clauses - else get conversion errors on double type fields
         Dim AccountHolder As String = txtAccountHolder.Text
         Dim AccountNumber As String = txtAccountNumber.Text
         Dim Balance As Double = CDbl(txtBalance.Text)
