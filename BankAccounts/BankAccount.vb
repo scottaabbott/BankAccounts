@@ -46,13 +46,14 @@
 
     End Function
 
-    Public Function GetInterestRate() As Double
-        Return Me.InterestRate
+    Public Function SetBalance(Balance As Double)
+        Me.Balance = Balance
+        Return Nothing
 
     End Function
 
-    Public Function GetCountryOfOrigin() As String
-        Return Me.CountryOfOrigin
+    Public Function GetInterestRate() As Double
+        Return Me.InterestRate
 
     End Function
 
@@ -61,4 +62,11 @@
         Return Nothing
 
     End Function
+
+    Public Function GetCountryOfOrigin() As String
+        Return Me.CountryOfOrigin
+
+    End Function
+
+
 End Class

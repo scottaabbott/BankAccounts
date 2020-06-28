@@ -70,6 +70,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
+    <TestMethod()> Public Sub TestSetBalance()
+
+        ' Arrange - setup test case
+
+        Dim NewBalance As Double = 9745.23
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+        Account1.SetBalance(NewBalance)
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(NewBalance, Account1.GetBalance())
+
+    End Sub
+
     <TestMethod()> Public Sub TestGetInterestRate()
 
         ' Arrange - setup test case
@@ -85,21 +100,6 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
     End Sub
 
-    <TestMethod()> Public Sub TestGetCountryOfOrigin()
-
-        ' Arrange - setup test case
-
-        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
-
-        ' Act - perform the test
-
-        Dim CountryOfOrigin As String = Account1.GetCountryOfOrigin()
-
-        ' Assert - check if the test failed
-        Assert.AreEqual(CountryOfOrigin, "Isle Of Man")
-
-    End Sub
-
     <TestMethod()> Public Sub TestSetInterestRate()
 
         ' Arrange - setup test case
@@ -112,6 +112,21 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         ' Assert - check if the test failed
         Assert.AreEqual(NewRate, Account1.GetInterestRate())
+
+    End Sub
+
+    <TestMethod()> Public Sub TestGetCountryOfOrigin()
+
+        ' Arrange - setup test case
+
+        Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
+
+        ' Act - perform the test
+
+        Dim CountryOfOrigin As String = Account1.GetCountryOfOrigin()
+
+        ' Assert - check if the test failed
+        Assert.AreEqual(CountryOfOrigin, "Isle Of Man")
 
     End Sub
 
