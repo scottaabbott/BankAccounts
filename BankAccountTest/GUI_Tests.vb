@@ -187,10 +187,14 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
             Next counter
 
         Catch Ex As Exception
+
+            Console.WriteLine(Ex.Message)
+
             Assert.Fail() ' If this line is executed, the test fails
         End Try
 
         ' Assert - compare to expected results
+        ' get all accounts from the form
         Dim TempAccounts() As BankAccount = BF.GetAccounts()
 
         For Each BA In TempAccounts

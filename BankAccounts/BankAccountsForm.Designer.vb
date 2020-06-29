@@ -46,7 +46,7 @@ Partial Class BankAccountsForm
         Me.btnExit.Location = New System.Drawing.Point(406, 355)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(84, 61)
-        Me.btnExit.TabIndex = 0
+        Me.btnExit.TabIndex = 8
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
@@ -55,7 +55,7 @@ Partial Class BankAccountsForm
         Me.txtAccountHolder.Location = New System.Drawing.Point(25, 39)
         Me.txtAccountHolder.Name = "txtAccountHolder"
         Me.txtAccountHolder.Size = New System.Drawing.Size(219, 20)
-        Me.txtAccountHolder.TabIndex = 1
+        Me.txtAccountHolder.TabIndex = 0
         '
         'lblAccountHolder
         '
@@ -65,7 +65,7 @@ Partial Class BankAccountsForm
         Me.lblAccountHolder.Location = New System.Drawing.Point(23, 19)
         Me.lblAccountHolder.Name = "lblAccountHolder"
         Me.lblAccountHolder.Size = New System.Drawing.Size(115, 13)
-        Me.lblAccountHolder.TabIndex = 2
+        Me.lblAccountHolder.TabIndex = 0
         Me.lblAccountHolder.Text = "Account Holder Name:"
         '
         'txtAccountNumber
@@ -73,7 +73,7 @@ Partial Class BankAccountsForm
         Me.txtAccountNumber.Location = New System.Drawing.Point(25, 97)
         Me.txtAccountNumber.Name = "txtAccountNumber"
         Me.txtAccountNumber.Size = New System.Drawing.Size(219, 20)
-        Me.txtAccountNumber.TabIndex = 3
+        Me.txtAccountNumber.TabIndex = 1
         '
         'hdrAccountNumber
         '
@@ -102,7 +102,7 @@ Partial Class BankAccountsForm
         Me.txtBalance.Location = New System.Drawing.Point(25, 206)
         Me.txtBalance.Name = "txtBalance"
         Me.txtBalance.Size = New System.Drawing.Size(219, 20)
-        Me.txtBalance.TabIndex = 6
+        Me.txtBalance.TabIndex = 3
         '
         'hdrInterestRate
         '
@@ -120,7 +120,7 @@ Partial Class BankAccountsForm
         Me.txtInterestRate.Location = New System.Drawing.Point(25, 148)
         Me.txtInterestRate.Name = "txtInterestRate"
         Me.txtInterestRate.Size = New System.Drawing.Size(219, 20)
-        Me.txtInterestRate.TabIndex = 8
+        Me.txtInterestRate.TabIndex = 2
         '
         'hdrCountryOfOrigin
         '
@@ -138,7 +138,7 @@ Partial Class BankAccountsForm
         Me.txtCountry.Location = New System.Drawing.Point(25, 268)
         Me.txtCountry.Name = "txtCountry"
         Me.txtCountry.Size = New System.Drawing.Size(219, 20)
-        Me.txtCountry.TabIndex = 10
+        Me.txtCountry.TabIndex = 4
         '
         'btnPrintAccounts
         '
@@ -146,7 +146,7 @@ Partial Class BankAccountsForm
         Me.btnPrintAccounts.Location = New System.Drawing.Point(25, 355)
         Me.btnPrintAccounts.Name = "btnPrintAccounts"
         Me.btnPrintAccounts.Size = New System.Drawing.Size(100, 61)
-        Me.btnPrintAccounts.TabIndex = 11
+        Me.btnPrintAccounts.TabIndex = 5
         Me.btnPrintAccounts.Text = "Print Accounts"
         Me.btnPrintAccounts.UseVisualStyleBackColor = True
         '
@@ -156,7 +156,7 @@ Partial Class BankAccountsForm
         Me.btnAddAccount.Location = New System.Drawing.Point(289, 355)
         Me.btnAddAccount.Name = "btnAddAccount"
         Me.btnAddAccount.Size = New System.Drawing.Size(89, 61)
-        Me.btnAddAccount.TabIndex = 12
+        Me.btnAddAccount.TabIndex = 7
         Me.btnAddAccount.Text = "Add Account"
         Me.btnAddAccount.UseVisualStyleBackColor = True
         '
@@ -166,7 +166,7 @@ Partial Class BankAccountsForm
         Me.btnAddInterest.Location = New System.Drawing.Point(161, 355)
         Me.btnAddInterest.Name = "btnAddInterest"
         Me.btnAddInterest.Size = New System.Drawing.Size(93, 61)
-        Me.btnAddInterest.TabIndex = 13
+        Me.btnAddInterest.TabIndex = 6
         Me.btnAddInterest.Text = "Add Interest"
         Me.btnAddInterest.UseVisualStyleBackColor = True
         '
@@ -177,7 +177,7 @@ Partial Class BankAccountsForm
         Me.txtListAccount.Name = "txtListAccount"
         Me.txtListAccount.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtListAccount.Size = New System.Drawing.Size(217, 287)
-        Me.txtListAccount.TabIndex = 14
+        Me.txtListAccount.TabIndex = 9
         '
         'hdrAccountList
         '
@@ -212,7 +212,6 @@ Partial Class BankAccountsForm
         Me.Controls.Add(Me.txtAccountHolder)
         Me.Controls.Add(Me.btnExit)
         Me.Name = "BankAccountsForm"
-        Me.Text = "Bank Accounts Form"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -1,8 +1,8 @@
 ﻿Imports System.Text
 Public Class BankAccountsForm
     ' Class variable declarations go here
-    Private MaxAccounts As Integer = 4
-    Private Accounts(MaxAccounts) As BankAccount
+    Private MaxAccounts As Integer = 5
+    Private Accounts(MaxAccounts - 1) As BankAccount
     Private NumAccounts As Integer
 
 
@@ -36,8 +36,10 @@ Public Class BankAccountsForm
 
         ' create a new bank account object using the values of the form fields
         Dim NewAccount = New BankAccount(AccountNumber, AccountHolder, Balance, InterestRate, Country)
+
         ' assign the new account to the next spot in the Accounts List (array)
         Me.Accounts(Me.NumAccounts) = NewAccount
+
         ' increment number counter
         Me.NumAccounts += 1
 
@@ -47,7 +49,6 @@ Public Class BankAccountsForm
         txtInterestRate.Clear()
         txtBalance.Clear()
         txtCountry.Clear()
-
 
         Return Nothing
 
