@@ -1,7 +1,9 @@
 ﻿Public Class BankAccountsForm
     ' Class variable declarations go here
-    Private Accounts(4) As BankAccount
+    Private MaxAccounts As Integer = 4
+    Private Accounts(MaxAccounts) As BankAccount
     Private NumAccounts As Integer
+
 
     ' Class method definitions go here (Constructors / Getters / Setters)
     Public Sub New()
@@ -21,6 +23,7 @@
         If txtInterestRate.Text = "" Then Throw New Exception("InterestRateRequiredException")
         If txtBalance.Text = "" Then Throw New Exception("BalanceRequiredException")
         If txtCountry.Text = "" Then Throw New Exception("CountryOfOriginRequiredException")
+        If NumAccounts > MaxAccounts Then Throw New Exception("MaximumAccountsReachedException")
 
         ' get text from from each textbox on the form so can use to create new bank account object
         ' need to run after guard clauses - else get conversion errors on double type fields
@@ -34,8 +37,9 @@
         Dim NewAccount = New BankAccount(AccountNumber, AccountHolder, Balance, InterestRate, Country)
         ' assign the new account to the next spot in the Accounts List (array)
         Me.Accounts(Me.NumAccounts) = NewAccount
+        ' increment number counter
+        Me.NumAccounts += 1
 
-        ' should increment NumAccounts?
         Return Nothing
 
     End Function

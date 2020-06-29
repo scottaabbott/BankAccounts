@@ -163,4 +163,71 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         End Try
 
     End Sub
+
+    <TestMethod()> Public Sub TestAddFiveAccounts()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "Ms I.N.Cognito"
+        Dim AccountNumber As String = "ABCD 890111 11167890"
+        Dim InterestRate As String = "4.3"
+        Dim Balance As String = "10343.82"
+        Dim CountryOfOrigin As String = "Isle Of Man"
+
+        Dim BF As New BankAccountsForm()
+
+        ' Act - perform the test
+
+        Try
+
+            For counter As Integer = 0 To 4
+                BF.SetTextForTesting(counter & "_" & AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+                BF.CreateAccount()
+
+            Next counter
+
+        Catch Ex As Exception
+            Assert.Fail() ' If this line is executed, the test fails
+        End Try
+
+        ' Assert - compare to expected results
+        Dim TempAccounts() As BankAccount = BF.GetAccounts()
+
+        For Each BA In TempAccounts
+            If BA Is Nothing Then Assert.Fail()
+        Next
+
+    End Sub
+
+    <TestMethod()> Public Sub TestAddSixAccounts()
+
+        ' Arrange - setup test case
+
+        Dim AccountHolder As String = "Ms I.N.Cognito"
+        Dim AccountNumber As String = "ABCD 890111 11167890"
+        Dim InterestRate As String = "4.3"
+        Dim Balance As String = "10343.82"
+        Dim CountryOfOrigin As String = "Isle Of Man"
+
+        Dim BF As New BankAccountsForm()
+
+        ' Act - perform the test
+
+        Try
+
+            For counter As Integer = 0 To 5
+                BF.SetTextForTesting(counter & "_" & AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+                BF.CreateAccount()
+
+            Next counter
+
+            ' Assert
+            Assert.Fail()
+
+        Catch Ex As Exception
+            ' Assert
+            Assert.AreEqual("MaximumAccountsReachedException", Ex.Message)
+        End Try
+
+    End Sub
 End Class
