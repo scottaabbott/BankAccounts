@@ -40,6 +40,13 @@
         ' increment number counter
         Me.NumAccounts += 1
 
+        ' clear textboxes after add account
+        txtAccountHolder.Text = ""
+        txtAccountNumber.Text = ""
+        txtInterestRate.Text = ""
+        txtBalance.Text = ""
+        txtCountry.Text = ""
+
         Return Nothing
 
     End Function
