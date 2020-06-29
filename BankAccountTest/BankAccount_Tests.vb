@@ -197,19 +197,29 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         ' Interest: 4.3% + vbcrlf
         ' 10343.82 + vbcrlf
 
+
+
         ' Arrange - setup test case
         Dim ExpectedValueString As New StringBuilder()
-        ExpectedValueString.Append("Isle of Man" & vbCrLf)
-        ExpectedValueString.Append("ABCD 890111 11167890" & vbCrLf)
-        ExpectedValueString.Append("Ms I.N.Cognito" & vbCrLf)
-        ExpectedValueString.Append("Interest: 4.3%" & vbCrLf)
-        ExpectedValueString.Append("10343.82" & vbCrLf)
+
+        ' define variables for expected values to ensure match with actuals
+        Dim ExpectedAccountHolder As String = "Ms I.N.Cognito"
+        Dim ExpectedAccountNumber As String = "ABCD 890111 11167890"
+        Dim ExpectedInterestRate As Double = 4.3
+        Dim ExpectedBalance As Double = 10343.82
+        Dim ExpectedCountryOfOrigin As String = "Isle Of Man"
+
+        ExpectedValueString.Append(ExpectedCountryOfOrigin & vbCrLf)
+        ExpectedValueString.Append(ExpectedAccountHolder & vbCrLf)
+        ExpectedValueString.Append(ExpectedAccountNumber & vbCrLf)
+        ExpectedValueString.Append("Interest: " & ExpectedInterestRate & "%" & vbCrLf)
+        ExpectedValueString.Append(ExpectedBalance & vbCrLf)
         Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
-        Console.WriteLine(ExpectedValueString.ToString())
+        'Console.WriteLine(ExpectedValueString.ToString())
 
         ' Act - perform the test
         Dim ActualString As String = Account1.ToString()
-        Console.WriteLine(ActualString)
+        'Console.WriteLine(ActualString)
 
         ' Assert - check if the test failed
         Assert.AreEqual(ExpectedValueString.ToString(), ActualString)

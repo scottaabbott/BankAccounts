@@ -1,4 +1,5 @@
-﻿Public Class BankAccountsForm
+﻿Imports System.Text
+Public Class BankAccountsForm
     ' Class variable declarations go here
     Private MaxAccounts As Integer = 4
     Private Accounts(MaxAccounts) As BankAccount
@@ -23,7 +24,7 @@
         If txtInterestRate.Text = "" Then Throw New Exception("InterestRateRequiredException")
         If txtBalance.Text = "" Then Throw New Exception("BalanceRequiredException")
         If txtCountry.Text = "" Then Throw New Exception("CountryOfOriginRequiredException")
-        If NumAccounts > MaxAccounts Then Throw New Exception("MaximumAccountsReachedException")
+        If NumAccounts = MaxAccounts Then Throw New Exception("MaximumAccountsReachedException")
 
         ' get text from from each textbox on the form so can use to create new bank account object
         ' need to run after guard clauses - else get conversion errors on double type fields
@@ -41,21 +42,94 @@
         Me.NumAccounts += 1
 
         ' clear textboxes after add account
-        txtAccountHolder.Text = ""
-        txtAccountNumber.Text = ""
-        txtInterestRate.Text = ""
-        txtBalance.Text = ""
-        txtCountry.Text = ""
+        txtAccountHolder.Clear()
+        txtAccountNumber.Clear()
+        txtInterestRate.Clear()
+        txtBalance.Clear()
+        txtCountry.Clear()
+
 
         Return Nothing
 
     End Function
+
+    Private Sub btnAddAccount_Click(sender As Object, e As EventArgs) Handles btnAddAccount.Click
+        ' Housekeeping
+        Dim Feedback As String = "Account added."
+        Dim Title As String = "Success"
+
+        Try
+            Me.CreateAccount()
+
+        Catch Ex As Exception
+            Title = Ex.Message()
+
+            Select Case Ex.Message
+
+                Case "AccountHolderRequiredException"
+                    Feedback = "Please enter an account holder name."
+                    txtAccountHolder.Focus()
+
+                Case "AccountNumberRequiredException"
+                    Feedback = "Please enter an account number."
+                    txtAccountNumber.Focus()
+
+                Case "InterestRateRequiredException"
+                    Feedback = "Please enter an interest rate."
+                    txtInterestRate.Focus()
+
+                Case "BalanceRequiredException"
+                    Feedback = "Please enter a balance."
+                    txtBalance.Focus()
+
+                Case "CountryOfOriginRequiredException"
+                    Feedback = "Please enter a country of origin."
+                    txtCountry.Focus()
+
+                Case "MaximumAccountsReachedException"
+                    Feedback = "You have reached the maximum number of accounts."
+
+                Case Else
+                    Title = "An error occurred."
+                    Feedback = Ex.Message
+
+            End Select
+
+
+        End Try
+
+        MsgBox(Feedback, vbOKOnly, Title)
+
+    End Sub
+
+    Private Sub btnPrintAccounts_Click(sender As Object, e As EventArgs) Handles btnPrintAccounts.Click
+        Dim AllAccounts As New StringBuilder()
+
+        For Each BA As BankAccount In Me.Accounts
+
+            ' exit if no accounts as if try & print, will crash
+            If BA Is Nothing Then Exit For
+
+            AllAccounts.Append(BA.ToString())
+            AllAccounts.Append(vbCrLf)
+
+        Next
+
+        txtListAccount.Text = AllAccounts.ToString()
+
+    End Sub
+
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Application.Exit()
 
     End Sub
 
-    Public Function SetTextForTesting(AccountNumber As String, AccountHolder As String, Balance As String, InterestRate As String, CountryOfOrigin As String)
+    Private Sub btnAddInterest_Click(sender As Object, e As EventArgs) Handles btnAddInterest.Click
+        SetTextForTesting("One", "Two", "Three", "Four", "Five")
+
+    End Sub
+
+    Public Function SetTextForTesting(AccountHolder As String, AccountNumber As String, Balance As String, InterestRate As String, CountryOfOrigin As String)
         txtAccountHolder.Text = AccountHolder
         txtAccountNumber.Text = AccountNumber
         txtBalance.Text = Balance
@@ -65,11 +139,6 @@
         Return Nothing
 
     End Function
-
-    Private Sub btnAddInterest_Click(sender As Object, e As EventArgs) Handles btnAddInterest.Click
-        SetTextForTesting("One", "Two", "Three", "Four", "Five")
-
-    End Sub
 
     Public Function GetAccounts() As BankAccount()
         Return Me.Accounts

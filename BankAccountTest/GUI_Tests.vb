@@ -14,7 +14,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "10343.82"
         Dim CountryOfOrigin As String = "Isle Of Man"
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
@@ -42,7 +42,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "10343.82"
         Dim CountryOfOrigin As String = "Isle Of Man"
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
@@ -69,7 +69,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "10343.82"
         Dim CountryOfOrigin As String = "Isle Of Man"
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
@@ -95,7 +95,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "10343.82"
         Dim CountryOfOrigin As String = "Isle Of Man"
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
@@ -121,7 +121,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "" ' simulate empty balance field
         Dim CountryOfOrigin As String = "Isle Of Man"
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
@@ -148,7 +148,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim Balance As String = "10343.82"
         Dim CountryOfOrigin As String = "" ' simulate empty country field
         Dim BF As New BankAccountsForm()
-        BF.SetTextForTesting(AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+        BF.SetTextForTesting(AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
 
         ' Act - perform the test
 
@@ -181,7 +181,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Try
 
             For counter As Integer = 0 To 4
-                BF.SetTextForTesting(counter & "_" & AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+                BF.SetTextForTesting(counter & "_" & AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
                 BF.CreateAccount()
 
             Next counter
@@ -216,7 +216,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Try
 
             For counter As Integer = 0 To 5
-                BF.SetTextForTesting(counter & "_" & AccountNumber, AccountHolder, Balance, InterestRate, CountryOfOrigin)
+                BF.SetTextForTesting(counter & "_" & AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
                 BF.CreateAccount()
 
             Next counter
