@@ -204,7 +204,6 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
             For counter As Integer = 0 To 4
                 BF.SetTextForTesting(counter & "_" & AccountHolder, AccountNumber, Balance, InterestRate, CountryOfOrigin)
                 BF.CreateAccount()
-
             Next counter
 
         Catch Ex As Exception
