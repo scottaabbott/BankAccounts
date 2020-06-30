@@ -95,16 +95,24 @@ Public Class BankAccount
 
     End Function
 
-    Public Overrides Function ToString() As String
+    Public Function GetSeparator() As String
 
+        Dim AttributeSeparator As String = vbCrLf
+        'Dim AttributeSeparator As String = " - "
+
+        Return AttributeSeparator
+
+    End Function
+
+    Public Overrides Function ToString() As String
 
         Dim AccountString As New StringBuilder()
 
-        AccountString.Append(Me.CountryOfOrigin & vbCrLf)
-        AccountString.Append(Me.AccountHolder & vbCrLf)
-        AccountString.Append(Me.AccountNumber & vbCrLf)
-        AccountString.Append("Interest: " & Me.InterestRate.ToString() & "%" & vbCrLf)
-        AccountString.Append(Me.Balance.ToString() & vbCrLf)
+        AccountString.Append(Me.CountryOfOrigin & Me.GetSeparator)
+        AccountString.Append(Me.AccountHolder & Me.GetSeparator)
+        AccountString.Append(Me.AccountNumber & Me.GetSeparator)
+        AccountString.Append("Interest: " & Me.InterestRate.ToString() & "%" & Me.GetSeparator)
+        AccountString.Append(Me.Balance.ToString() & Me.GetSeparator)
 
         'AccountString.Append("Isle of Man" & vbCrLf)
         'AccountString.Append("ABCD 890111 11167890" & vbCrLf)

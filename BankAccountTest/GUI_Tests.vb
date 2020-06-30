@@ -21,14 +21,35 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         ' use the information on the Bank Form to create an account
         BF.CreateAccount()
         ' get a copy of the arrays of Bank Accounts on the Bank Account form
+        ' ARRAY implementation
         Dim TempAccount() As BankAccount = BF.GetAccounts()
+        ' LIST implementation 
+        Dim TempAccountList As List(Of BankAccount) = BF.GetAccountsList()
+
 
         ' Assert - compare to expected results
-        Assert.AreEqual(AccountHolder, TempAccount(0).GetAccountHolder())
-        Assert.AreEqual(AccountNumber, TempAccount(0).GetAccountNumber())
-        Assert.AreEqual(10343.82, TempAccount(0).GetBalance())
-        Assert.AreEqual(4.3, TempAccount(0).GetInterestRate())
-        Assert.AreEqual(CountryOfOrigin, TempAccount(0).GetCountryOfOrigin())
+
+        ' ARRAY implementation 
+        'Assert.AreEqual(AccountHolder, TempAccount(0).GetAccountHolder())
+        'Assert.AreEqual(AccountNumber, TempAccount(0).GetAccountNumber())
+        'Assert.AreEqual(10343.82, TempAccount(0).GetBalance())
+        'Assert.AreEqual(4.3, TempAccount(0).GetInterestRate())
+        'Assert.AreEqual(CountryOfOrigin, TempAccount(0).GetCountryOfOrigin())
+
+        ' LIST implementation
+
+        For Each BA In TempAccountList
+            Console.WriteLine(AccountHolder & " - " & BA.GetAccountHolder())
+            Assert.AreEqual(AccountHolder, BA.GetAccountHolder())
+            Console.WriteLine(AccountNumber & " - " & BA.GetAccountNumber())
+            Assert.AreEqual(AccountNumber, BA.GetAccountNumber())
+            Assert.AreEqual(10343.82, BA.GetBalance())
+            Assert.AreEqual(4.3, BA.GetInterestRate())
+            Assert.AreEqual(CountryOfOrigin, BA.GetCountryOfOrigin())
+            ' only check the first record in the list
+            Exit For
+        Next
+
 
     End Sub
 

@@ -175,9 +175,9 @@ Partial Class BankAccountsForm
         Me.txtListAccount.Location = New System.Drawing.Point(273, 29)
         Me.txtListAccount.Multiline = True
         Me.txtListAccount.Name = "txtListAccount"
-        Me.txtListAccount.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.txtListAccount.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.txtListAccount.Size = New System.Drawing.Size(217, 287)
-        Me.txtListAccount.TabIndex = 9
+        Me.txtListAccount.TabIndex = 14
         '
         'hdrAccountList
         '

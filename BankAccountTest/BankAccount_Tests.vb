@@ -201,6 +201,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         ' Arrange - setup test case
         Dim ExpectedValueString As New StringBuilder()
+        Dim AttributeSeparator As String = vbCrLf
+        'Dim AttributeSeparator As String = " - "
 
         ' define variables for expected values to ensure match with actuals
         Dim ExpectedAccountHolder As String = "Ms I.N.Cognito"
@@ -209,11 +211,12 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Dim ExpectedBalance As Double = 10343.82
         Dim ExpectedCountryOfOrigin As String = "Isle Of Man"
 
-        ExpectedValueString.Append(ExpectedCountryOfOrigin & vbCrLf)
-        ExpectedValueString.Append(ExpectedAccountHolder & vbCrLf)
-        ExpectedValueString.Append(ExpectedAccountNumber & vbCrLf)
-        ExpectedValueString.Append("Interest: " & ExpectedInterestRate & "%" & vbCrLf)
-        ExpectedValueString.Append(ExpectedBalance & vbCrLf)
+        ExpectedValueString.Append(ExpectedCountryOfOrigin & AttributeSeparator)
+        ExpectedValueString.Append(ExpectedAccountHolder & AttributeSeparator)
+        ExpectedValueString.Append(ExpectedAccountNumber & AttributeSeparator)
+        ExpectedValueString.Append("Interest: " & ExpectedInterestRate & "%" & AttributeSeparator)
+        ExpectedValueString.Append(ExpectedBalance & AttributeSeparator)
+
         Dim Account1 As BankAccounts.BankAccount = Me.NewAccount()
         'Console.WriteLine(ExpectedValueString.ToString())
 

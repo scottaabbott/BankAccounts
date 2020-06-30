@@ -1,10 +1,15 @@
 ﻿Imports System.Text
+Imports BankAccounts
 Public Class BankAccountsForm
     ' Class variable declarations go here
     Private MaxAccounts As Integer = 5
+    ' ARRAY implementation of Account List
     Private Accounts(MaxAccounts - 1) As BankAccount
     Private NumAccounts As Integer
 
+    ' LIST implementation of Account List
+    Private AccountsList As List(Of BankAccount) = New List(Of BankAccount)
+    Private CntAccounts As Integer
 
     ' Class method definitions go here (Constructors / Getters / Setters)
     Public Sub New()
@@ -14,6 +19,7 @@ Public Class BankAccountsForm
 
         ' Add any initialization after the InitializeComponent() call.
         Me.NumAccounts = 0
+        Me.CntAccounts = Me.AccountsList.Count()
 
     End Sub
     Public Function CreateAccount()
@@ -38,10 +44,14 @@ Public Class BankAccountsForm
         Dim NewAccount = New BankAccount(AccountNumber, AccountHolder, Balance, InterestRate, Country)
 
         ' assign the new account to the next spot in the Accounts List (array)
-        Me.Accounts(Me.NumAccounts) = NewAccount
 
-        ' increment number counter
+        ' ARRAY implementation
+        Me.Accounts(Me.NumAccounts) = NewAccount
         Me.NumAccounts += 1
+
+        ' LIST implementation
+        Me.AccountsList.Add(NewAccount)
+        Me.CntAccounts = Me.AccountsList.Count()
 
         ' clear textboxes after add account
         txtAccountHolder.Clear()
@@ -106,14 +116,24 @@ Public Class BankAccountsForm
     Private Sub btnPrintAccounts_Click(sender As Object, e As EventArgs) Handles btnPrintAccounts.Click
         Dim AllAccounts As New StringBuilder()
 
-        For Each BA As BankAccount In Me.Accounts
+        ' ARRAY implementation
+        'For Each BA As BankAccount In Me.Accounts
 
+        ' exit if no accounts as if try & print, will crash
+        'If BA Is Nothing Then Exit For
+        '
+        'AllAccounts.Append(BA.ToString())
+        'AllAccounts.Append(vbCrLf)
+
+        'Next
+
+        ' LIST implementation
+        For Each BA In Me.AccountsList
             ' exit if no accounts as if try & print, will crash
             If BA Is Nothing Then Exit For
 
             AllAccounts.Append(BA.ToString())
             AllAccounts.Append(vbCrLf)
-
         Next
 
         txtListAccount.Text = AllAccounts.ToString()
@@ -142,7 +162,13 @@ Public Class BankAccountsForm
     End Function
 
     Public Function GetAccounts() As BankAccount()
+        ' ARRAY implementation
         Return Me.Accounts
+    End Function
+
+    Public Function GetAccountsList() As List(Of BankAccount)
+        ' LIST implementation
+        Return Me.AccountsList
     End Function
 
 End Class
