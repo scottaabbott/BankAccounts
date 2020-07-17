@@ -36,7 +36,6 @@ Partial Class BankAccountsForm
         Me.btnPrintAccounts = New System.Windows.Forms.Button()
         Me.btnAddAccount = New System.Windows.Forms.Button()
         Me.btnDeleteAccount = New System.Windows.Forms.Button()
-        Me.txtListAccount = New System.Windows.Forms.TextBox()
         Me.hdrAccountList = New System.Windows.Forms.Label()
         Me.lsvAccountList = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -44,6 +43,7 @@ Partial Class BankAccountsForm
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.lbxAccountList = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'btnExit
@@ -176,15 +176,6 @@ Partial Class BankAccountsForm
         Me.btnDeleteAccount.Text = "Delete Account"
         Me.btnDeleteAccount.UseVisualStyleBackColor = True
         '
-        'txtListAccount
-        '
-        Me.txtListAccount.Location = New System.Drawing.Point(273, 29)
-        Me.txtListAccount.Multiline = True
-        Me.txtListAccount.Name = "txtListAccount"
-        Me.txtListAccount.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtListAccount.Size = New System.Drawing.Size(217, 287)
-        Me.txtListAccount.TabIndex = 14
-        '
         'hdrAccountList
         '
         Me.hdrAccountList.AutoSize = True
@@ -228,14 +219,23 @@ Partial Class BankAccountsForm
         '
         Me.ColumnHeader5.Text = "Country of Origin"
         '
+        'lbxAccountList
+        '
+        Me.lbxAccountList.FormattingEnabled = True
+        Me.lbxAccountList.Items.AddRange(New Object() {"AH1  AC1  1.1  111  NZ", "AH2  AC2  2.2 222  GB", "AH3  AC3  3.3 333  UK", "AH4  AC4  4.4 444  SA", "AH5  AC5  5.5 555  AU"})
+        Me.lbxAccountList.Location = New System.Drawing.Point(273, 29)
+        Me.lbxAccountList.Name = "lbxAccountList"
+        Me.lbxAccountList.Size = New System.Drawing.Size(228, 277)
+        Me.lbxAccountList.TabIndex = 17
+        '
         'BankAccountsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(971, 450)
+        Me.Controls.Add(Me.lbxAccountList)
         Me.Controls.Add(Me.lsvAccountList)
         Me.Controls.Add(Me.hdrAccountList)
-        Me.Controls.Add(Me.txtListAccount)
         Me.Controls.Add(Me.btnDeleteAccount)
         Me.Controls.Add(Me.btnAddAccount)
         Me.Controls.Add(Me.btnPrintAccounts)
@@ -270,7 +270,6 @@ Partial Class BankAccountsForm
     Friend WithEvents btnPrintAccounts As Button
     Friend WithEvents btnAddAccount As Button
     Friend WithEvents btnDeleteAccount As Button
-    Friend WithEvents txtListAccount As TextBox
     Friend WithEvents hdrAccountList As Label
     Friend WithEvents lsvAccountList As ListView
     Friend WithEvents ColumnHeader1 As ColumnHeader
@@ -278,4 +277,5 @@ Partial Class BankAccountsForm
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents ColumnHeader5 As ColumnHeader
+    Friend WithEvents lbxAccountList As ListBox
 End Class

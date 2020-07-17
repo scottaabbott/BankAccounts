@@ -1,4 +1,5 @@
 ﻿Imports System.Text
+Imports BankAccounts
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
 <TestClass()> Public Class BankAccount_Tests
@@ -201,8 +202,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         ' Arrange - setup test case
         Dim ExpectedValueString As New StringBuilder()
-        Dim AttributeSeparator As String = vbCrLf
-        'Dim AttributeSeparator As String = " - "
+        'Dim AttributeSeparator As String = vbCrLf
+        Dim AttributeSeparator As String = " - "
 
         ' define variables for expected values to ensure match with actuals
         Dim ExpectedAccountHolder As String = "Ms I.N.Cognito"

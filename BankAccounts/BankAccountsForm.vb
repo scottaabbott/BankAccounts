@@ -4,8 +4,8 @@ Public Class BankAccountsForm
     ' Class variable declarations go here
     Private MaxAccounts As Integer = 5
     ' ARRAY implementation of Account List
-    Private Accounts(MaxAccounts - 1) As BankAccount
-    Private NumAccounts As Integer
+    'Private Accounts(MaxAccounts - 1) As BankAccount
+    'Private NumAccounts As Integer
 
     ' LIST implementation of Account List
     Private AccountsList As List(Of BankAccount) = New List(Of BankAccount)
@@ -18,7 +18,7 @@ Public Class BankAccountsForm
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        Me.NumAccounts = 0
+        'Me.NumAccounts = 0
         Me.CntAccounts = Me.AccountsList.Count()
 
     End Sub
@@ -49,8 +49,11 @@ Public Class BankAccountsForm
         ' assign the new account to the next spot in the Accounts List (array)
 
         ' ARRAY implementation
-        Me.Accounts(Me.NumAccounts) = NewAccount
-        Me.NumAccounts += 1
+        'Me.Accounts(Me.NumAccounts) = NewAccount
+        'Me.NumAccounts += 1
+
+        ' LISTBOX implementation
+        lbxAccountList.Items.Add(NewAccount.ToString())
 
         ' LIST implementation
         Me.AccountsList.Add(NewAccount)
@@ -118,6 +121,7 @@ Public Class BankAccountsForm
 
     Private Sub btnPrintAccounts_Click(sender As Object, e As EventArgs) Handles btnPrintAccounts.Click
         Dim AllAccounts As New StringBuilder()
+        Dim AttributeSeparator As String = " - "
 
         ' ARRAY implementation
         'For Each BA As BankAccount In Me.Accounts
@@ -136,10 +140,10 @@ Public Class BankAccountsForm
             If BA Is Nothing Then Exit For
 
             AllAccounts.Append(BA.ToString())
-            AllAccounts.Append(vbCrLf)
+            AllAccounts.Append(AttributeSeparator)
         Next
 
-        txtListAccount.Text = AllAccounts.ToString()
+        lbxAccountList.Text = AllAccounts.ToString()
 
     End Sub
 
@@ -164,10 +168,10 @@ Public Class BankAccountsForm
 
     End Function
 
-    Public Function GetAccounts() As BankAccount()
-        ' ARRAY implementation
-        Return Me.Accounts
-    End Function
+    'Public Function GetAccounts() As BankAccount()
+    '    ' ARRAY implementation
+    '    Return Me.Accounts
+    'End Function
 
     Public Function GetAccountsList() As List(Of BankAccount)
         ' LIST implementation

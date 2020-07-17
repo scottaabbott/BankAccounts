@@ -97,8 +97,8 @@ Public Class BankAccount
 
     Public Function GetSeparator() As String
 
-        Dim AttributeSeparator As String = vbCrLf
-        'Dim AttributeSeparator As String = " - "
+        'Dim AttributeSeparator As String = vbCrLf
+        Dim AttributeSeparator As String = " - "
 
         Return AttributeSeparator
 

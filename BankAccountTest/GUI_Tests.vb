@@ -22,7 +22,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         BF.CreateAccount()
         ' get a copy of the arrays of Bank Accounts on the Bank Account form
         ' ARRAY implementation
-        Dim TempAccount() As BankAccount = BF.GetAccounts()
+        'Dim TempAccount() As BankAccount = BF.GetAccounts()
         ' LIST implementation 
         Dim TempAccountList As List(Of BankAccount) = BF.GetAccountsList()
 
@@ -215,9 +215,18 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
         ' Assert - compare to expected results
         ' get all accounts from the form
-        Dim TempAccounts() As BankAccount = BF.GetAccounts()
 
-        For Each BA In TempAccounts
+        ' ARRAY storage implementation
+        'Dim TempAccounts() As BankAccount = BF.GetAccounts()
+
+        'For Each BA In TempAccounts
+        '    If BA Is Nothing Then Assert.Fail()
+        'Next
+
+        ' LIST storage implementation
+        Dim TempAccountsList As List(Of BankAccount) = BF.GetAccountsList()
+
+        For Each BA In TempAccountsList
             If BA Is Nothing Then Assert.Fail()
         Next
 
