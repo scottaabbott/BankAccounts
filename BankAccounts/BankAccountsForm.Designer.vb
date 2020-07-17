@@ -22,7 +22,7 @@ Partial Class BankAccountsForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnExit = New System.Windows.Forms.Button()
+        Me.btnViewAccount = New System.Windows.Forms.Button()
         Me.txtAccountHolder = New System.Windows.Forms.TextBox()
         Me.lblAccountHolder = New System.Windows.Forms.Label()
         Me.txtAccountNumber = New System.Windows.Forms.TextBox()
@@ -43,18 +43,18 @@ Partial Class BankAccountsForm
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.lbxAccountList = New System.Windows.Forms.ListBox()
+        Me.lbxAccHolderList = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
-        'btnExit
+        'btnViewAccount
         '
-        Me.btnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExit.Location = New System.Drawing.Point(406, 355)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(84, 61)
-        Me.btnExit.TabIndex = 8
-        Me.btnExit.Text = "Exit"
-        Me.btnExit.UseVisualStyleBackColor = True
+        Me.btnViewAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnViewAccount.Location = New System.Drawing.Point(152, 345)
+        Me.btnViewAccount.Name = "btnViewAccount"
+        Me.btnViewAccount.Size = New System.Drawing.Size(84, 61)
+        Me.btnViewAccount.TabIndex = 8
+        Me.btnViewAccount.Text = "View Account"
+        Me.btnViewAccount.UseVisualStyleBackColor = True
         '
         'txtAccountHolder
         '
@@ -149,7 +149,7 @@ Partial Class BankAccountsForm
         'btnPrintAccounts
         '
         Me.btnPrintAccounts.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPrintAccounts.Location = New System.Drawing.Point(25, 355)
+        Me.btnPrintAccounts.Location = New System.Drawing.Point(398, 345)
         Me.btnPrintAccounts.Name = "btnPrintAccounts"
         Me.btnPrintAccounts.Size = New System.Drawing.Size(100, 61)
         Me.btnPrintAccounts.TabIndex = 5
@@ -159,7 +159,7 @@ Partial Class BankAccountsForm
         'btnAddAccount
         '
         Me.btnAddAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddAccount.Location = New System.Drawing.Point(155, 355)
+        Me.btnAddAccount.Location = New System.Drawing.Point(29, 345)
         Me.btnAddAccount.Name = "btnAddAccount"
         Me.btnAddAccount.Size = New System.Drawing.Size(89, 61)
         Me.btnAddAccount.TabIndex = 7
@@ -169,7 +169,7 @@ Partial Class BankAccountsForm
         'btnDeleteAccount
         '
         Me.btnDeleteAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDeleteAccount.Location = New System.Drawing.Point(283, 355)
+        Me.btnDeleteAccount.Location = New System.Drawing.Point(275, 345)
         Me.btnDeleteAccount.Name = "btnDeleteAccount"
         Me.btnDeleteAccount.Size = New System.Drawing.Size(93, 61)
         Me.btnDeleteAccount.TabIndex = 6
@@ -219,21 +219,20 @@ Partial Class BankAccountsForm
         '
         Me.ColumnHeader5.Text = "Country of Origin"
         '
-        'lbxAccountList
+        'lbxAccHolderList
         '
-        Me.lbxAccountList.FormattingEnabled = True
-        Me.lbxAccountList.Items.AddRange(New Object() {"AH1  AC1  1.1  111  NZ", "AH2  AC2  2.2 222  GB", "AH3  AC3  3.3 333  UK", "AH4  AC4  4.4 444  SA", "AH5  AC5  5.5 555  AU"})
-        Me.lbxAccountList.Location = New System.Drawing.Point(273, 29)
-        Me.lbxAccountList.Name = "lbxAccountList"
-        Me.lbxAccountList.Size = New System.Drawing.Size(228, 277)
-        Me.lbxAccountList.TabIndex = 17
+        Me.lbxAccHolderList.FormattingEnabled = True
+        Me.lbxAccHolderList.Location = New System.Drawing.Point(273, 29)
+        Me.lbxAccHolderList.Name = "lbxAccHolderList"
+        Me.lbxAccHolderList.Size = New System.Drawing.Size(174, 277)
+        Me.lbxAccHolderList.TabIndex = 17
         '
         'BankAccountsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(971, 450)
-        Me.Controls.Add(Me.lbxAccountList)
+        Me.Controls.Add(Me.lbxAccHolderList)
         Me.Controls.Add(Me.lsvAccountList)
         Me.Controls.Add(Me.hdrAccountList)
         Me.Controls.Add(Me.btnDeleteAccount)
@@ -249,14 +248,14 @@ Partial Class BankAccountsForm
         Me.Controls.Add(Me.txtAccountNumber)
         Me.Controls.Add(Me.lblAccountHolder)
         Me.Controls.Add(Me.txtAccountHolder)
-        Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.btnViewAccount)
         Me.Name = "BankAccountsForm"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents btnExit As Button
+    Friend WithEvents btnViewAccount As Button
     Friend WithEvents txtAccountHolder As TextBox
     Friend WithEvents lblAccountHolder As Label
     Friend WithEvents txtAccountNumber As TextBox
@@ -277,5 +276,5 @@ Partial Class BankAccountsForm
     Friend WithEvents ColumnHeader3 As ColumnHeader
     Friend WithEvents ColumnHeader4 As ColumnHeader
     Friend WithEvents ColumnHeader5 As ColumnHeader
-    Friend WithEvents lbxAccountList As ListBox
+    Friend WithEvents lbxAccHolderList As ListBox
 End Class

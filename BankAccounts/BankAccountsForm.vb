@@ -53,18 +53,26 @@ Public Class BankAccountsForm
         'Me.NumAccounts += 1
 
         ' LISTBOX implementation
-        lbxAccountList.Items.Add(NewAccount.ToString())
+        ' add all items
+        'lbxAccHolderList.Items.Add(NewAccount.ToString())
+
+        ' add Account Holder only
+        Dim ListBoxItem As New StringBuilder()
+        Dim BalanceString As String
+
+        'format balance into currency format - use parens for -ve numbers, group digits
+        BalanceString = FormatCurrency(NewAccount.GetBalance(),,, TriState.True, TriState.True)
+
+        ListBoxItem.Append(NewAccount.GetAccountHolder().PadRight(15))
+        ListBoxItem.Append(BalanceString.PadLeft(15))
+        lbxAccHolderList.Items.Add(ListBoxItem)
 
         ' LIST implementation
         Me.AccountsList.Add(NewAccount)
         Me.CntAccounts = Me.AccountsList.Count()
 
         ' clear textboxes after add account
-        txtAccountHolder.Clear()
-        txtAccountNumber.Clear()
-        txtInterestRate.Clear()
-        txtBalance.Clear()
-        txtCountry.Clear()
+        ClearTextBoxes()
 
         Return Nothing
 
@@ -134,6 +142,9 @@ Public Class BankAccountsForm
 
         'Next
 
+        ' clear display
+        'lbxAccHolderList.Items.Clear()
+
         ' LIST implementation
         For Each BA In Me.AccountsList
             ' exit if no accounts as if try & print, will crash
@@ -143,19 +154,44 @@ Public Class BankAccountsForm
             AllAccounts.Append(AttributeSeparator)
         Next
 
-        lbxAccountList.Text = AllAccounts.ToString()
+        lbxAccHolderList.Text = AllAccounts.ToString()
 
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Application.Exit()
+    Private Sub btnViewAccount_Click(sender As Object, e As EventArgs) Handles btnViewAccount.Click
+
+        ' Housekeeping
+        ' capture index of current highighted row in listbox
+        Dim CurrItem As Integer = lbxAccHolderList.SelectedIndex()
+
+        Dim Title As String = " --- ACCOUNT DETAILS ---"
+        Dim FeedBack As String = Me.AccountsList(CurrItem).GetAccountInfo()
+        MsgBox(FeedBack, MsgBoxStyle.Information, Title)
 
     End Sub
 
-    Private Sub btnAddInterest_Click(sender As Object, e As EventArgs) Handles btnDeleteAccount.Click
-        SetTextForTesting("One", "Two", "Three", "Four", "Five")
+    Private Sub btnDeleteAccount_Click(sender As Object, e As EventArgs) Handles btnDeleteAccount.Click
+
+        ' capture index of current highighted row in listbox
+        Dim CurrItem As Integer = lbxAccHolderList.SelectedIndex()
+
+        ' remove row from listbox
+        lbxAccHolderList.Items.RemoveAt(lbxAccHolderList.SelectedIndex())
+
+        ' remove item from list
 
     End Sub
+
+    Private Function ClearTextBoxes()
+
+        ' clear textboxes after add account
+        txtAccountHolder.Clear()
+        txtAccountNumber.Clear()
+        txtInterestRate.Clear()
+        txtBalance.Clear()
+        txtCountry.Clear()
+
+    End Function
 
     Public Function SetTextForTesting(AccountHolder As String, AccountNumber As String, Balance As String, InterestRate As String, CountryOfOrigin As String)
         txtAccountHolder.Text = AccountHolder

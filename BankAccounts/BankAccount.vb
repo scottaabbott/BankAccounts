@@ -7,6 +7,8 @@ Public Class BankAccount
     Private Balance As Double
     Private CountryOfOrigin As String
 
+    Private AttributeSeparator As String
+
 
     Public Sub New(AccountNumber As String, AccountHolder As String, Balance As Double, InterestRate As Double, CountryOfOrigin As String)
         Me.AccountHolder = AccountHolder
@@ -95,12 +97,14 @@ Public Class BankAccount
 
     End Function
 
+    Public Function SetSeparator(Separator As String) As String
+
+        Me.AttributeSeparator = Separator
+        Return Me.AttributeSeparator
+
+    End Function
     Public Function GetSeparator() As String
-
-        'Dim AttributeSeparator As String = vbCrLf
-        Dim AttributeSeparator As String = " - "
-
-        Return AttributeSeparator
+        Return Me.AttributeSeparator
 
     End Function
 
@@ -114,11 +118,25 @@ Public Class BankAccount
         AccountString.Append("Interest: " & Me.InterestRate.ToString() & "%" & Me.GetSeparator)
         AccountString.Append(Me.Balance.ToString() & Me.GetSeparator)
 
-        'AccountString.Append("Isle of Man" & vbCrLf)
-        'AccountString.Append("ABCD 890111 11167890" & vbCrLf) 
-        'AccountString.Append("Ms I.N.Cognito" & vbCrLf)
-        'AccountString.Append("Interest: 4.3%" & vbCrLf)
-        'AccountString.Append("10343.82" & vbCrLf)
+        Return AccountString.ToString()
+
+    End Function
+
+    Public Function GetAccountInfo() As String
+
+        Dim AccountString As New StringBuilder()
+        Dim BalanceString As String
+
+        'format balance into currency format - use parens for -ve numbers, group digits
+        BalanceString = FormatCurrency(Me.Balance,,, TriState.True, TriState.True)
+
+        ' one item per line, no account holder item, headers
+        Me.SetSeparator(vbCrLf)
+        AccountString.Append("HOLDER:  " & Me.AccountHolder & Me.GetSeparator)
+        AccountString.Append("COUNTRY: " & Me.CountryOfOrigin & Me.GetSeparator)
+        AccountString.Append("NUMBER:  " & Me.AccountNumber & Me.GetSeparator)
+        AccountString.Append("INTEREST:" & Me.InterestRate.ToString() & "%" & Me.GetSeparator)
+        AccountString.Append("BALANCE: " & BalanceString)
 
         Return AccountString.ToString()
 
