@@ -35,9 +35,15 @@ Partial Class BankAccountsForm
         Me.txtCountry = New System.Windows.Forms.TextBox()
         Me.btnPrintAccounts = New System.Windows.Forms.Button()
         Me.btnAddAccount = New System.Windows.Forms.Button()
-        Me.btnAddInterest = New System.Windows.Forms.Button()
+        Me.btnDeleteAccount = New System.Windows.Forms.Button()
         Me.txtListAccount = New System.Windows.Forms.TextBox()
         Me.hdrAccountList = New System.Windows.Forms.Label()
+        Me.lsvAccountList = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'btnExit
@@ -153,22 +159,22 @@ Partial Class BankAccountsForm
         'btnAddAccount
         '
         Me.btnAddAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddAccount.Location = New System.Drawing.Point(289, 355)
+        Me.btnAddAccount.Location = New System.Drawing.Point(155, 355)
         Me.btnAddAccount.Name = "btnAddAccount"
         Me.btnAddAccount.Size = New System.Drawing.Size(89, 61)
         Me.btnAddAccount.TabIndex = 7
         Me.btnAddAccount.Text = "Add Account"
         Me.btnAddAccount.UseVisualStyleBackColor = True
         '
-        'btnAddInterest
+        'btnDeleteAccount
         '
-        Me.btnAddInterest.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAddInterest.Location = New System.Drawing.Point(161, 355)
-        Me.btnAddInterest.Name = "btnAddInterest"
-        Me.btnAddInterest.Size = New System.Drawing.Size(93, 61)
-        Me.btnAddInterest.TabIndex = 6
-        Me.btnAddInterest.Text = "Add Interest"
-        Me.btnAddInterest.UseVisualStyleBackColor = True
+        Me.btnDeleteAccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDeleteAccount.Location = New System.Drawing.Point(283, 355)
+        Me.btnDeleteAccount.Name = "btnDeleteAccount"
+        Me.btnDeleteAccount.Size = New System.Drawing.Size(93, 61)
+        Me.btnDeleteAccount.TabIndex = 6
+        Me.btnDeleteAccount.Text = "Delete Account"
+        Me.btnDeleteAccount.UseVisualStyleBackColor = True
         '
         'txtListAccount
         '
@@ -190,14 +196,47 @@ Partial Class BankAccountsForm
         Me.hdrAccountList.TabIndex = 15
         Me.hdrAccountList.Text = "Account List:"
         '
+        'lsvAccountList
+        '
+        Me.lsvAccountList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
+        Me.lsvAccountList.GridLines = True
+        Me.lsvAccountList.HideSelection = False
+        Me.lsvAccountList.Location = New System.Drawing.Point(537, 29)
+        Me.lsvAccountList.Name = "lsvAccountList"
+        Me.lsvAccountList.Size = New System.Drawing.Size(305, 273)
+        Me.lsvAccountList.TabIndex = 16
+        Me.lsvAccountList.UseCompatibleStateImageBehavior = False
+        Me.lsvAccountList.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Holder"
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Number"
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "Interest Rate"
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Balance"
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Country of Origin"
+        '
         'BankAccountsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(517, 450)
+        Me.ClientSize = New System.Drawing.Size(971, 450)
+        Me.Controls.Add(Me.lsvAccountList)
         Me.Controls.Add(Me.hdrAccountList)
         Me.Controls.Add(Me.txtListAccount)
-        Me.Controls.Add(Me.btnAddInterest)
+        Me.Controls.Add(Me.btnDeleteAccount)
         Me.Controls.Add(Me.btnAddAccount)
         Me.Controls.Add(Me.btnPrintAccounts)
         Me.Controls.Add(Me.txtCountry)
@@ -230,7 +269,13 @@ Partial Class BankAccountsForm
     Friend WithEvents txtCountry As TextBox
     Friend WithEvents btnPrintAccounts As Button
     Friend WithEvents btnAddAccount As Button
-    Friend WithEvents btnAddInterest As Button
+    Friend WithEvents btnDeleteAccount As Button
     Friend WithEvents txtListAccount As TextBox
     Friend WithEvents hdrAccountList As Label
+    Friend WithEvents lsvAccountList As ListView
+    Friend WithEvents ColumnHeader1 As ColumnHeader
+    Friend WithEvents ColumnHeader2 As ColumnHeader
+    Friend WithEvents ColumnHeader3 As ColumnHeader
+    Friend WithEvents ColumnHeader4 As ColumnHeader
+    Friend WithEvents ColumnHeader5 As ColumnHeader
 End Class

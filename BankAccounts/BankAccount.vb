@@ -115,7 +115,7 @@ Public Class BankAccount
         AccountString.Append(Me.Balance.ToString() & Me.GetSeparator)
 
         'AccountString.Append("Isle of Man" & vbCrLf)
-        'AccountString.Append("ABCD 890111 11167890" & vbCrLf)
+        'AccountString.Append("ABCD 890111 11167890" & vbCrLf) 
         'AccountString.Append("Ms I.N.Cognito" & vbCrLf)
         'AccountString.Append("Interest: 4.3%" & vbCrLf)
         'AccountString.Append("10343.82" & vbCrLf)

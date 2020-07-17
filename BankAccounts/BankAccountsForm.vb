@@ -148,7 +148,7 @@ Public Class BankAccountsForm
 
     End Sub
 
-    Private Sub btnAddInterest_Click(sender As Object, e As EventArgs) Handles btnAddInterest.Click
+    Private Sub btnAddInterest_Click(sender As Object, e As EventArgs) Handles btnDeleteAccount.Click
         SetTextForTesting("One", "Two", "Three", "Four", "Five")
 
     End Sub
